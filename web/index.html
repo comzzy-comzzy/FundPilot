@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FundPilot — Your money. Your rules. One operator.</title>
+  <meta name="description" content="FundPilot is an autonomous financial operations layer. It understands intent, applies your rules, executes what is allowed, and asks when judgment is needed." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='5' y='6' width='8.5' height='20' rx='2.2' transform='skewX(-20)' fill='%238B6CFF'/%3E%3Crect x='16' y='6' width='8.5' height='20' rx='2.2' transform='skewX(-20)' fill='%23C4B5FD'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">
+        <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="5.2" y="6" width="8.4" height="20" rx="2.3" transform="skewX(-20)" fill="#8B6CFF"/>
+          <rect x="16.2" y="6" width="8.4" height="20" rx="2.3" transform="skewX(-20)" fill="#C4B5FD"/>
+        </svg>
+        FundPilot
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#product">Product</a>
+        <a href="#how">How it works</a>
+        <a href="#control">Control</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <a class="text-link" href="#faq">Log in</a>
+        <a class="btn" href="http://127.0.0.1:3847">Open operator</a>
+      </div>
+      <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+    <div class="drawer" hidden>
+      <a href="#product">Product</a>
+      <a href="#how">How it works</a>
+      <a href="#control">Control</a>
+      <a href="#faq">FAQ</a>
+      <a href="#faq">Log in</a>
+      <a class="btn" href="http://127.0.0.1:3847">Open operator</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="product">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">Financial operations layer</p>
+          <h1>Your money. Your rules. One operator.</h1>
+          <p class="lede">
+            FundPilot sits between what you want done with your money and the action that follows. It applies your policies, runs what is allowed, and stops when a decision needs you.
+          </p>
+          <div class="cta-row">
+            <a class="btn" href="http://127.0.0.1:3847">See the operator</a>
+            <button class="btn btn-ghost" type="button" data-open-demo>Watch how it works</button>
+          </div>
+          <ul class="facts">
+            <li><strong>Not a chatbot.</strong> A queue of financial decisions.</li>
+            <li><strong>Not autopilot.</strong> Autonomy only inside your rules.</li>
+            <li><strong>Binance first.</strong> On-chain only where it belongs.</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual">
+          <div class="stage" id="stage">
+            <button class="slide-nav prev" type="button" aria-label="Previous">‹</button>
+            <button class="slide-nav next" type="button" aria-label="Next">›</button>
+            <div class="carousel" id="carousel">
+
+              <article class="device" data-slide="0">
+                <div class="iphone">
+                  <span class="side-btn silent"></span>
+                  <span class="side-btn vol-up"></span>
+                  <span class="side-btn vol-down"></span>
+                  <span class="side-btn power"></span>
+                  <div class="bezel">
+                    <div class="notch"><i></i><i></i></div>
+                    <div class="screen">
+                      <div class="status"><span>9:41</span><span class="bars">▮▮▮▯</span></div>
+                      <div class="app-head">
+                        <span class="app-brand">
+                          <svg viewBox="0 0 32 32"><rect x="5.2" y="6" width="8.4" height="20" rx="2.3" transform="skewX(-20)" fill="#8B6CFF"/><rect x="16.2" y="6" width="8.4" height="20" rx="2.3" transform="skewX(-20)" fill="#C4B5FD"/></svg>
+                          FundPilot
+                        </span>
+                        <span class="pill-quiet">Live</span>
+                      </div>
+                      <p class="greet">Good evening.<br><b>Your funds are on track.</b></p>
+                      <div class="bal">
+                        <div class="bal-top"><span>Total balance</span><span class="up">+2.4%</span></div>
+                        <div class="bal-num">$12,450.23</div>
+                        <svg class="spark" viewBox="0 0 180 28" preserveAspectRatio="none"><path d="M0 20 C20 18 36 12 54 14 C78 16 96 6 120 8 C144 10 162 4 180 3" fill="none" stroke="#3DDC97" stroke-width="2"/></svg>
+                      </div>
+                      <div class="quick">
+                        <button type="button">Send</button>
+                        <button type="button">Swap</button>
+                        <button type="button">Pay</button>
+                        <button type="button">More</button>
+                      </div>
+                      <div class="list-head"><span>Active agents</span><span>3</span></div>
+                      <ul class="list">
+                        <li><span>Payroll</span><span class="ok">Active</span></li>
+                        <li><span>Treasury</span><span class="ok">Active</span></li>
+                        <li><span>Bills</span><span class="ok">Due in 2d</span></li>
+                      </ul>
+                    </div>
+                    <div class="home-bar"></div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="device" data-slide="1">
+                <div class="iphone">
+                  <span class="side-btn silent"></span>
+                  <span class="side-btn vol-up"></span>
+                  <span class="side-btn vol-down"></span>
+                  <span class="side-btn power"></span>
+                  <div class="bezel">
+                    <div class="notch"><i></i><i></i></div>
+                    <div class="screen">
+                      <div class="status"><span>9:41</span><span class="bars">▮▮▮▯</span></div>
+                      <div class="app-head">
+                        <span class="app-brand">FundPilot</span>
+                        <span class="pill-quiet">Queue</span>
+                      </div>
+                      <p class="greet">You have 3<br><b>decisions waiting.</b></p>
+                      <ul class="queue">
+                        <li>
+                          <div>
+                            <b>Contractor</b>
+                            <span>Over $500 · due today</span>
+                          </div>
+                          <strong>$650</strong>
+                        </li>
+                        <li>
+                          <div>
+                            <b>Unusual transfer</b>
+                            <span>Flagged by policy</span>
+                          </div>
+                          <strong>$420</strong>
+                        </li>
+                        <li>
+                          <div>
+                            <b>Due today</b>
+                            <span>Would break $1,000 reserve</span>
+                          </div>
+                          <strong>$1,200</strong>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="home-bar"></div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="device" data-slide="2">
+                <div class="iphone">
+                  <span class="side-btn silent"></span>
+                  <span class="side-btn vol-up"></span>
+                  <span class="side-btn vol-down"></span>
+                  <span class="side-btn power"></span>
+                  <div class="bezel">
+                    <div class="notch"><i></i><i></i></div>
+                    <div class="screen">
+                      <div class="status"><span>9:41</span><span class="bars">▮▮▮▯</span></div>
+                      <div class="app-head">
+                        <span class="app-brand">FundPilot</span>
+                        <span class="pill-quiet">Policy</span>
+                      </div>
+                      <p class="greet">Firewall on.<br><b>Four rules enforced.</b></p>
+                      <ul class="list rules">
+                        <li><span>Keep $1,000 untouched</span><span class="ok">On</span></li>
+                        <li><span>No pay over $500</span><span class="ok">On</span></li>
+                        <li><span>Flag new recipients</span><span class="ok">On</span></li>
+                        <li><span>Prioritize due today</span><span class="ok">On</span></li>
+                      </ul>
+                    </div>
+                    <div class="home-bar"></div>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+          <div class="dots" role="tablist" aria-label="Screens">
+            <button type="button" class="is-on" data-to="0">Overview</button>
+            <button type="button" data-to="1">Approvals</button>
+            <button type="button" data-to="2">Rules</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="strip" id="control">
+      <div class="wrap">
+        <p class="strip-kicker">Waiting on you</p>
+        <h2>Three decisions. One queue.</h2>
+        <ol class="queue-board">
+          <li>
+            <span class="q-label">Approve</span>
+            <p>Contractor payment</p>
+            <b>$650</b>
+          </li>
+          <li>
+            <span class="q-label warn">Review</span>
+            <p>Unusual transaction</p>
+            <b>$420</b>
+          </li>
+          <li>
+            <span class="q-label">Due today</span>
+            <p>Would break reserve</p>
+            <b>$1,200</b>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="how" id="how">
+      <div class="wrap">
+        <p class="kicker">How it works</p>
+        <h2>Intent in. Policy in the middle. Money last.</h2>
+        <ol class="steps">
+          <li><span>01</span><div><h3>Understand</h3><p>Read the instruction, the balances, and what is actually due.</p></div></li>
+          <li><span>02</span><div><h3>Check rules</h3><p>Limits, new payees, duplicates, reserve floor, unusual activity.</p></div></li>
+          <li><span>03</span><div><h3>Act or ask</h3><p>Allowed work runs. Everything else waits in the queue.</p></div></li>
+          <li><span>04</span><div><h3>Record why</h3><p>Every allow, block, delay, or request is explained.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="split" id="faq">
+      <div class="wrap split-grid">
+        <div>
+          <p class="kicker">FAQ</p>
+          <h2>Straight answers.</h2>
+        </div>
+        <div class="faqs">
+          <details open>
+            <summary>Does it move money on its own?</summary>
+            <p>Only inside your rules. Over a limit, a new recipient, or anything unusual waits for you.</p>
+          </details>
+          <details>
+            <summary>Where does Binance fit?</summary>
+            <p>Binance is the financial infrastructure. On-chain wallets are used only when that is the right tool.</p>
+          </details>
+          <details>
+            <summary>Is this a chat app?</summary>
+            <p>No. The product is an operator queue — decisions, explanations, and a policy firewall.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span class="brand">
+        <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="5.2" y="6" width="8.4" height="20" rx="2.3" transform="skewX(-20)" fill="#8B6CFF"/>
+          <rect x="16.2" y="6" width="8.4" height="20" rx="2.3" transform="skewX(-20)" fill="#C4B5FD"/>
+        </svg>
+        FundPilot
+      </span>
+      <p>Your money. Your rules. One operator.</p>
+    </div>
+  </footer>
+
+  <div class="modal" id="demo-modal" hidden>
+    <div class="modal-card">
+      <button class="modal-close" type="button" aria-label="Close">×</button>
+      <h2>How FundPilot operates</h2>
+      <ol>
+        <li>Understand the instruction.</li>
+        <li>Check it against the firewall.</li>
+        <li>Execute what is allowed, or put it in the queue.</li>
+        <li>Record the reason either way.</li>
+      </ol>
+      <button class="btn" type="button" data-close-demo>Close</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

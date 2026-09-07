@@ -1,0 +1,25 @@
+{
+  "name": "fundpilot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FundPilot - Your money. Your rules. One operator.",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "demo": "npx tsx scripts/demo.ts",
+    "mcp": "npx tsx packages/mcp-server/src/index.ts",
+    "operator": "npx tsx apps/operator/src/server.ts",
+    "web": "npx --yes serve web -l 8080",
+    "build": "npx tsc -p packages/core && npx tsc -p packages/binance && npx tsc -p packages/mcp-server"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "@types/node": "^22.10.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FundPilot Operator</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="mark"></span>
+      <strong>FundPilot</strong>
+      <span class="pill">Operator</span>
+    </div>
+    <div id="balances" class="balances">Loading balances…</div>
+  </header>
+
+  <main class="grid">
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Decision queue</h2>
+        <button id="refresh" class="btn ghost">Refresh</button>
+      </div>
+      <div id="queue" class="queue"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Command</h2>
+      <p class="muted">Natural language → policy firewall → queue or act.</p>
+      <form id="cmd-form" class="cmd">
+        <input id="cmd" type="text" placeholder="Pay contractor $650 due today" autocomplete="off" />
+        <button class="btn" type="submit">Propose</button>
+      </form>
+      <div id="cmd-result" class="result muted"></div>
+
+      <h2 class="mt">Policies</h2>
+      <div id="policies" class="policies"></div>
+    </section>
+
+    <section class="panel span">
+      <h2>Audit trail</h2>
+      <div id="audit" class="audit"></div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,33 +1,63 @@
 # FundPilot
 
-**Your money. Your rules. One operator.**
+Your money. Your rules. One operator.
 
-FundPilot is an autonomous financial operations layer for the Binance Agent OS hackathon. It sits between what you want done with your money and the action that follows: it understands intent, applies your rules, executes what is allowed, and asks when judgment is needed.
+## Run
 
-This is not a chatbot, a payment bot, or autopilot. It is a queue of financial decisions with a policy firewall.
+```
+npm install
+npm run demo
+npm run operator
+npm run mcp
+npm run web
+```
+
+See DEMO.md and SUBMISSION.md.
 
 ## Product
 
-- **Understand** the instruction, balances, and what is actually due
-- **Check rules** — limits, new payees, duplicates, reserve floor, unusual activity
-- **Act or ask** — allowed work runs; everything else waits in the queue
-- **Record why** every allow, block, delay, or request is explained
+Understand intent, check policy firewall, act if allowed or queue for approval, audit why.
+Not a chatbot. Binance-first.
 
-Binance is the core financial infrastructure. On-chain wallets are used only when that is the right tool.
+## Architecture
 
-## Local preview
-
-This folder is a static site. From `web/`:
-
-```bash
-python3 -m http.server 8080
+```mermaid
+flowchart LR
+  User --> Intent --> Policy
+  Policy -->|allowed| Exec
+  Policy -->|queue| Operator
+  Exec --> Audit
+  Operator --> Exec
 ```
 
-Open http://127.0.0.1:8080
+## Packages
 
-## Stack
+- packages/core — intent, policy, queue, audit, engine
+- packages/binance — mock + Agentic Wallet interface
+- packages/mcp-server — Track B MCP stdio tools
+- apps/operator — dashboard + API on port 3847
+- web — landing
+- scripts/demo.ts — one-command demo
 
-- `index.html` — landing page
-- `styles.css` — layout and 3D phone carousel
-- `app.js` — carousel, demo modal, mobile menu
-- `assets/` — logo and reference images
+## Policy defaults
+
+1. Reserve 1000 USD
+2. Approval over 500 USD
+3. Flag new recipients
+4. Prioritize due today
+5. Duplicate + unusual detection
+
+Statuses: pending | approved | blocked | executed | delayed
+
+## Tracks
+
+- Track A: agent + operator
+- Track B: MCP tools get_balances list_queue propose_payment approve_decision set_policy explain_decision execute_allowed list_audit
+
+## Binance
+
+Demo: MockBinanceAdapter. Real: @binance/agentic-wallet (baw). See packages/binance/src/baw.ts and .env.example.
+Skills: https://github.com/binance/binance-skills-hub
+
+Operator: http://127.0.0.1:3847
+Landing: http://127.0.0.1:8080
