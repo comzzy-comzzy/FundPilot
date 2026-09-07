@@ -103,3 +103,38 @@ h2 { margin: 0 0 12px; font-size: 16px; letter-spacing: -0.02em; }
   background: #111; color: var(--text); padding: 6px 8px; font: inherit;
 }
 .result { min-height: 1.2em; }
+
+.wallet-auth, .wallet-setup {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #0c0c10;
+}
+.wallet-auth .pairing {
+  font-size: 28px;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  color: var(--ok);
+  margin: 8px 0 12px;
+}
+.wallet-auth a { color: #c4b5fd; }
+.wallet-setup ol { margin: 8px 0 0; padding-left: 18px; color: var(--muted); font-size: 13px; line-height: 1.55; }
+.wallet-setup code, .wallet-auth code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  background: #16161c;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1px 6px;
+}
+.status-dot {
+  display: inline-block;
+  width: 8px; height: 8px; border-radius: 50%;
+  margin-right: 6px; vertical-align: middle;
+}
+.status-dot.ok { background: var(--ok); }
+.status-dot.warn { background: var(--warn); }
+.status-dot.bad { background: var(--bad); }
+.pill.mode-baw { border-color: #3ddc97; color: #3ddc97; }
+.pill.mode-demo { border-color: var(--accent); color: #c4b5fd; }

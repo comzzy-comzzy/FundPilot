@@ -3,13 +3,14 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createDemoEngine, type PolicyConfig } from "@fundpilot/core";
-import { createAdapter } from "@fundpilot/binance";
+import { createAdapter, isAuthCapable, type WalletAdapter } from "@fundpilot/binance";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const publicDir = path.join(__dirname, "..", "public");
 const PORT = Number(process.env.FUNDPILOT_PORT || 3847);
+const MODE = (process.env.FUNDPILOT_MODE === "baw" ? "baw" : "demo") as "demo" | "baw";
 
-const wallet = createAdapter("demo");
+const wallet: WalletAdapter = createAdapter(MODE);
 const engine = createDemoEngine(wallet);
 
 function sendJson(res: http.ServerResponse, status: number, body: unknown) {
@@ -53,6 +54,12 @@ async function handleApi(req: http.IncomingMessage, res: http.ServerResponse, ur
   }
 
   try {
+    if (method === "GET" && url.pathname === "/api/mode") {
+      return sendJson(res, 200, { mode: MODE });
+    }
+    if (method === "GET" && url.pathname === "/api/wallet/status") {
+      return sendJson(res, 200, await wallet.status());
+    }
     if (method === "GET" && url.pathname === "/api/balances") {
       return sendJson(res, 200, await engine.getBalances());
     }
@@ -68,6 +75,32 @@ async function handleApi(req: http.IncomingMessage, res: http.ServerResponse, ur
     if (method === "GET" && url.pathname.startsWith("/api/explain/")) {
       const id = url.pathname.split("/").pop()!;
       return sendJson(res, 200, engine.explainDecision(id));
+    }
+    if (method === "POST" && url.pathname === "/api/auth/signin") {
+      if (!isAuthCapable(wallet)) {
+        return sendJson(res, 400, {
+          error: "Auth requires FUNDPILOT_MODE=baw and BawAdapter. Demo mode uses a mock wallet.",
+          mode: MODE,
+          hint: "Set FUNDPILOT_MODE=baw, install baw CLI, restart operator.",
+        });
+      }
+      const result = await wallet.authSignin();
+      return sendJson(res, 200, result);
+    }
+    if (method === "POST" && url.pathname === "/api/auth/verify") {
+      if (!isAuthCapable(wallet)) {
+        return sendJson(res, 400, { error: "Auth requires FUNDPILOT_MODE=baw", mode: MODE });
+      }
+      const body = JSON.parse((await readBody(req)) || "{}") as { qrCodeId?: string };
+      if (!body.qrCodeId) return sendJson(res, 400, { error: "qrCodeId required" });
+      const result = await wallet.authVerify(body.qrCodeId);
+      return sendJson(res, 200, result);
+    }
+    if (method === "POST" && url.pathname === "/api/auth/signout") {
+      if (!isAuthCapable(wallet)) {
+        return sendJson(res, 400, { error: "Auth requires FUNDPILOT_MODE=baw", mode: MODE });
+      }
+      return sendJson(res, 200, await wallet.authSignout());
     }
     if (method === "POST" && url.pathname === "/api/propose") {
       const body = JSON.parse((await readBody(req)) || "{}") as { text?: string };
@@ -87,9 +120,7 @@ async function handleApi(req: http.IncomingMessage, res: http.ServerResponse, ur
     }
     return sendJson(res, 404, { error: "Not found" });
   } catch (e) {
-    return sendJson(res, 400, {
-      error: e instanceof Error ? e.message : String(e),
-    });
+    return sendJson(res, 400, { error: e instanceof Error ? e.message : String(e) });
   }
 }
 
@@ -99,10 +130,7 @@ const server = http.createServer(async (req, res) => {
     return handleApi(req, res, url);
   }
 
-  let filePath = path.join(
-    publicDir,
-    url.pathname === "/" ? "index.html" : url.pathname
-  );
+  let filePath = path.join(publicDir, url.pathname === "/" ? "index.html" : url.pathname);
   if (!filePath.startsWith(publicDir)) {
     res.writeHead(403);
     return res.end("Forbidden");
@@ -115,6 +143,8 @@ const server = http.createServer(async (req, res) => {
   res.end(data);
 });
 
+server.requestTimeout = 330_000;
+server.headersTimeout = 335_000;
 server.listen(PORT, "127.0.0.1", () => {
-  console.log(`FundPilot operator at http://127.0.0.1:${PORT}`);
+  console.log(`FundPilot operator at http://127.0.0.1:${PORT} (mode=${MODE})`);
 });
