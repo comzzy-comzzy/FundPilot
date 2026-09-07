@@ -4,14 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FundPilot — Your money. Your rules. One operator.</title>
-  <meta name="description" content="FundPilot is an autonomous financial operations layer. It understands intent, applies your rules, executes what is allowed, and asks when judgment is needed." />
+  <meta name="description" content="FundPilot is an autonomous financial operations layer. Binance-first. Policy in the middle. Money last." />
+  <meta name="theme-color" content="#07070a" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='5' y='6' width='8.5' height='20' rx='2.2' transform='skewX(-20)' fill='%238B6CFF'/%3E%3Crect x='16' y='6' width='8.5' height='20' rx='2.2' transform='skewX(-20)' fill='%23C4B5FD'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="noise" aria-hidden="true"></div>
+
   <header class="header">
     <div class="wrap header-inner">
       <a class="brand" href="#top">
@@ -24,12 +27,12 @@
       <nav class="nav" aria-label="Primary">
         <a href="#product">Product</a>
         <a href="#how">How it works</a>
-        <a href="#control">Control</a>
+        <a href="#operator">Operator</a>
         <a href="#faq">FAQ</a>
       </nav>
       <div class="header-actions">
-        <a class="text-link" href="#faq">Log in</a>
-        <a class="btn" href="http://127.0.0.1:3847">Open operator</a>
+        <a class="text-link" href="#operator">Demo</a>
+        <a class="btn btn-sm" href="#operator">Open operator</a>
       </div>
       <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false">
         <span></span><span></span>
@@ -38,10 +41,9 @@
     <div class="drawer" hidden>
       <a href="#product">Product</a>
       <a href="#how">How it works</a>
-      <a href="#control">Control</a>
+      <a href="#operator">Operator</a>
       <a href="#faq">FAQ</a>
-      <a href="#faq">Log in</a>
-      <a class="btn" href="http://127.0.0.1:3847">Open operator</a>
+      <a class="btn" href="#operator">Open operator</a>
     </div>
   </header>
 
@@ -49,19 +51,23 @@
     <section class="hero" id="product">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="kicker">Financial operations layer</p>
-          <h1>Your money. Your rules. One operator.</h1>
+          <div class="eyebrow">
+            <span class="pulse"></span>
+            Binance-first · policy-gated
+          </div>
+          <h1>Your money.<br />Your rules.<br /><em>One operator.</em></h1>
           <p class="lede">
-            FundPilot sits between what you want done with your money and the action that follows. It applies your policies, runs what is allowed, and stops when a decision needs you.
+            FundPilot sits between intent and settlement. It applies your policies,
+            executes what is allowed, and queues anything that needs judgment.
           </p>
           <div class="cta-row">
-            <a class="btn" href="http://127.0.0.1:3847">See the operator</a>
-            <button class="btn btn-ghost" type="button" data-open-demo>Watch how it works</button>
+            <a class="btn" href="#operator">Open operator</a>
+            <a class="btn btn-ghost" href="#how">How it works</a>
           </div>
           <ul class="facts">
-            <li><strong>Not a chatbot.</strong> A queue of financial decisions.</li>
-            <li><strong>Not autopilot.</strong> Autonomy only inside your rules.</li>
-            <li><strong>Binance first.</strong> On-chain only where it belongs.</li>
+            <li><strong>Queue, not chat.</strong> Decisions with explanations — not a conversation toy.</li>
+            <li><strong>Autonomy with brakes.</strong> Runs only inside limits you set.</li>
+            <li><strong>Binance first.</strong> Exchange rails where they belong; on-chain only when needed.</li>
           </ul>
         </div>
 
@@ -86,9 +92,9 @@
                           <svg viewBox="0 0 32 32"><rect x="5.2" y="6" width="8.4" height="20" rx="2.3" transform="skewX(-20)" fill="#8B6CFF"/><rect x="16.2" y="6" width="8.4" height="20" rx="2.3" transform="skewX(-20)" fill="#C4B5FD"/></svg>
                           FundPilot
                         </span>
-                        <span class="pill-quiet">Live</span>
+                        <span class="pill-quiet live">Live</span>
                       </div>
-                      <p class="greet">Good evening.<br><b>Your funds are on track.</b></p>
+                      <p class="greet">Good evening.<br><b>Funds on track.</b></p>
                       <div class="bal">
                         <div class="bal-top"><span>Total balance</span><span class="up">+2.4%</span></div>
                         <div class="bal-num">$12,450.23</div>
@@ -126,7 +132,7 @@
                         <span class="app-brand">FundPilot</span>
                         <span class="pill-quiet">Queue</span>
                       </div>
-                      <p class="greet">You have 3<br><b>decisions waiting.</b></p>
+                      <p class="greet">3 decisions<br><b>waiting on you.</b></p>
                       <ul class="queue">
                         <li>
                           <div>
@@ -144,12 +150,13 @@
                         </li>
                         <li>
                           <div>
-                            <b>Due today</b>
-                            <span>Would break $1,000 reserve</span>
+                            <b>Would break reserve</b>
+                            <span>Below $1,000 floor</span>
                           </div>
                           <strong>$1,200</strong>
                         </li>
                       </ul>
+                      <p class="queue-hint">Allowed work already ran. These need a human.</p>
                     </div>
                     <div class="home-bar"></div>
                   </div>
@@ -173,7 +180,7 @@
                       <p class="greet">Firewall on.<br><b>Four rules enforced.</b></p>
                       <ul class="list rules">
                         <li><span>Keep $1,000 untouched</span><span class="ok">On</span></li>
-                        <li><span>No pay over $500</span><span class="ok">On</span></li>
+                        <li><span>No pay over $500 auto</span><span class="ok">On</span></li>
                         <li><span>Flag new recipients</span><span class="ok">On</span></li>
                         <li><span>Prioritize due today</span><span class="ok">On</span></li>
                       </ul>
@@ -194,40 +201,113 @@
       </div>
     </section>
 
-    <section class="strip" id="control">
+    <section class="how" id="how">
       <div class="wrap">
-        <p class="strip-kicker">Waiting on you</p>
-        <h2>Three decisions. One queue.</h2>
-        <ol class="queue-board">
+        <div class="section-head">
+          <p class="kicker">How it works</p>
+          <h2>Intent in. Policy in the middle. Money last.</h2>
+        </div>
+        <ol class="steps">
           <li>
-            <span class="q-label">Approve</span>
-            <p>Contractor payment</p>
-            <b>$650</b>
+            <span class="step-num">01</span>
+            <div>
+              <h3>Understand</h3>
+              <p>Parse the instruction against live balances, due dates, and open commitments.</p>
+            </div>
           </li>
           <li>
-            <span class="q-label warn">Review</span>
-            <p>Unusual transaction</p>
-            <b>$420</b>
+            <span class="step-num">02</span>
+            <div>
+              <h3>Check rules</h3>
+              <p>Limits, new payees, duplicates, reserve floor, unusual patterns — before anything moves.</p>
+            </div>
           </li>
           <li>
-            <span class="q-label">Due today</span>
-            <p>Would break reserve</p>
-            <b>$1,200</b>
+            <span class="step-num">03</span>
+            <div>
+              <h3>Act or ask</h3>
+              <p>Allowed work settles. Everything else waits in the operator queue with a reason.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">04</span>
+            <div>
+              <h3>Record why</h3>
+              <p>Every allow, block, delay, or request is logged — auditable, not opaque.</p>
+            </div>
           </li>
         </ol>
       </div>
     </section>
 
-    <section class="how" id="how">
+    <section class="operator" id="operator">
       <div class="wrap">
-        <p class="kicker">How it works</p>
-        <h2>Intent in. Policy in the middle. Money last.</h2>
-        <ol class="steps">
-          <li><span>01</span><div><h3>Understand</h3><p>Read the instruction, the balances, and what is actually due.</p></div></li>
-          <li><span>02</span><div><h3>Check rules</h3><p>Limits, new payees, duplicates, reserve floor, unusual activity.</p></div></li>
-          <li><span>03</span><div><h3>Act or ask</h3><p>Allowed work runs. Everything else waits in the queue.</p></div></li>
-          <li><span>04</span><div><h3>Record why</h3><p>Every allow, block, delay, or request is explained.</p></div></li>
-        </ol>
+        <div class="section-head">
+          <p class="kicker">Operator</p>
+          <h2>Connect Binance. See the desk.</h2>
+          <p class="section-lede">
+            Static demo on this site. Live Agent&nbsp;OS auth and settlement run locally via
+            <code>baw</code> — not on Vercel yet.
+          </p>
+        </div>
+
+        <div class="op-grid">
+          <aside class="op-connect">
+            <div class="op-badge">Demo mode</div>
+            <h3>Binance connection</h3>
+            <p class="op-copy">API keys never leave your machine in production. Here we simulate a linked account so you can feel the desk.</p>
+
+            <label class="field">
+              <span>API key</span>
+              <input type="password" id="demo-key" value="••••••••••••demo" readonly autocomplete="off" />
+            </label>
+            <label class="field">
+              <span>API secret</span>
+              <input type="password" id="demo-secret" value="••••••••••••••••" readonly autocomplete="off" />
+            </label>
+
+            <button class="btn btn-binance" type="button" id="connect-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l3.09 3.09-1.41 1.41L12 4.83 4.83 12l7.17 7.17 1.41-1.41L16.09 21 12 22l-10-10L12 2zm4.59 6.17L18 6.76 22 10.76l-1.41 1.41-4-4zm-1.17 1.17L12 12.76l3.42 3.42 1.41-1.41L14.83 12l1.59-1.66z"/></svg>
+              Connect Binance
+            </button>
+            <p class="op-note" id="connect-status" role="status">Not connected — click to simulate.</p>
+          </aside>
+
+          <div class="op-desk" id="op-desk" data-connected="false">
+            <div class="desk-top">
+              <div>
+                <span class="desk-label">Spot · USDT</span>
+                <div class="desk-balance" id="desk-balance">—</div>
+              </div>
+              <div class="desk-meta">
+                <span class="pill-quiet" id="desk-pill">Offline</span>
+                <span class="mono" id="desk-change">—</span>
+              </div>
+            </div>
+
+            <div class="desk-rows">
+              <div class="desk-row">
+                <span>Available</span>
+                <strong class="mono" id="desk-avail">—</strong>
+              </div>
+              <div class="desk-row">
+                <span>In orders</span>
+                <strong class="mono" id="desk-locked">—</strong>
+              </div>
+              <div class="desk-row">
+                <span>Reserve floor</span>
+                <strong class="mono">$1,000.00</strong>
+              </div>
+            </div>
+
+            <div class="desk-queue">
+              <div class="list-head"><span>Operator queue</span><span id="queue-count">0</span></div>
+              <ul class="desk-items" id="desk-items">
+                <li class="empty">Connect to load the desk.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -240,15 +320,15 @@
         <div class="faqs">
           <details open>
             <summary>Does it move money on its own?</summary>
-            <p>Only inside your rules. Over a limit, a new recipient, or anything unusual waits for you.</p>
+            <p>Only inside your rules. Over a limit, a new recipient, or anything unusual waits in the queue for you.</p>
           </details>
           <details>
             <summary>Where does Binance fit?</summary>
-            <p>Binance is the financial infrastructure. On-chain wallets are used only when that is the right tool.</p>
+            <p>Binance is the primary financial rail. On-chain wallets are used only when settlement requires them.</p>
           </details>
           <details>
-            <summary>Is this a chat app?</summary>
-            <p>No. The product is an operator queue — decisions, explanations, and a policy firewall.</p>
+            <summary>Why isn’t live operator auth on this site?</summary>
+            <p>This Vercel deploy is the marketing surface. Agent OS auth, keys, and settlement run locally through <code>baw</code> against your own environment.</p>
           </details>
         </div>
       </div>
@@ -265,22 +345,9 @@
         FundPilot
       </span>
       <p>Your money. Your rules. One operator.</p>
+      <a class="text-link" href="#operator">Open operator →</a>
     </div>
   </footer>
-
-  <div class="modal" id="demo-modal" hidden>
-    <div class="modal-card">
-      <button class="modal-close" type="button" aria-label="Close">×</button>
-      <h2>How FundPilot operates</h2>
-      <ol>
-        <li>Understand the instruction.</li>
-        <li>Check it against the firewall.</li>
-        <li>Execute what is allowed, or put it in the queue.</li>
-        <li>Record the reason either way.</li>
-      </ol>
-      <button class="btn" type="button" data-close-demo>Close</button>
-    </div>
-  </div>
 
   <script src="app.js"></script>
 </body>
