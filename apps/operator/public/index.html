@@ -12,11 +12,26 @@
       <span class="mark"></span>
       <strong>FundPilot</strong>
       <span class="pill">Operator</span>
+      <span id="mode-pill" class="pill">mode…</span>
     </div>
     <div id="balances" class="balances">Loading balances…</div>
   </header>
 
   <main class="grid">
+    <section class="panel span" id="wallet-panel">
+      <div class="panel-head">
+        <h2>Binance wallet</h2>
+        <div class="actions" style="margin:0">
+          <button id="wallet-refresh" class="btn ghost" type="button">Refresh</button>
+          <button id="wallet-connect" class="btn" type="button">Connect Binance</button>
+          <button id="wallet-signout" class="btn ghost" type="button" hidden>Sign out</button>
+        </div>
+      </div>
+      <div id="wallet-status" class="muted">Checking wallet status…</div>
+      <div id="wallet-auth" class="wallet-auth" hidden></div>
+      <div id="wallet-setup" class="wallet-setup" hidden></div>
+    </section>
+
     <section class="panel">
       <div class="panel-head">
         <h2>Decision queue</h2>

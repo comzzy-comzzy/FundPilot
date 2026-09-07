@@ -54,9 +54,27 @@ Statuses: pending | approved | blocked | executed | delayed
 - Track A: agent + operator
 - Track B: MCP tools get_balances list_queue propose_payment approve_decision set_policy explain_decision execute_allowed list_audit
 
-## Binance
 
-Demo: MockBinanceAdapter. Real: @binance/agentic-wallet (baw). See packages/binance/src/baw.ts and .env.example.
+## Binance Agentic Wallet (baw)
+
+Demo mode (`FUNDPILOT_MODE=demo`) uses `MockBinanceAdapter` — no secrets.
+
+For real wallet auth + balances in the operator:
+
+1. Install CLI: `npm i -g @binance/agentic-wallet`
+2. Copy `.env.example` → `.env` and set `FUNDPILOT_MODE=baw`
+3. Run `npm run operator` → open http://127.0.0.1:3847
+4. Click **Connect Binance** (runs `baw auth signin --json`)
+5. Confirm the **pairing code** in the Binance Wallet App (use `urlForWeb` verbatim)
+6. Click **Verify** (`baw auth verify --qrCodeId … --json`, blocks up to ~5 min)
+7. Balances load via `baw wallet balance --json`
+
+Notes:
+- Confirm connection with `baw wallet status --json` (`CONNECTED`), not only the App UI
+- Tokens worth under $0.01 USD are hidden by the CLI
+- Send/swap are stubbed in this release (auth + balances only)
+- Landing `web/` stays pitch-only — connect lives in the operator
+
 Skills: https://github.com/binance/binance-skills-hub
 
 Operator: http://127.0.0.1:3847
