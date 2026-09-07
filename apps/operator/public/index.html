@@ -6,13 +6,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <title>FundPilot Operator</title>
+  <title>FundPilot — Your money. Your rules. One operator.</title>
+  <meta name="theme-color" content="#07070a" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
+  <div class="noise" aria-hidden="true"></div>
   <header class="top">
     <div class="brand">
-      <span class="mark"></span>
+      <span class="mark" aria-hidden="true"></span>
       <strong>FundPilot</strong>
       <span class="pill">Operator</span>
       <span id="mode-pill" class="pill">mode…</span>
@@ -20,45 +22,59 @@
     <div id="balances" class="balances">Loading balances…</div>
   </header>
 
-  <main class="grid">
-    <section class="panel span" id="wallet-panel">
+  <main class="wrap">
+    <section class="hero-step panel" id="wallet-panel">
+      <p class="kicker">Step 1 · Required first</p>
       <div class="panel-head">
-        <h2>Binance wallet</h2>
-        <div class="actions" style="margin:0">
-          <button id="wallet-refresh" class="btn ghost" type="button">Refresh</button>
+        <div>
+          <h1>Connect Binance</h1>
+          <p class="lede">Link Agentic Wallet before any decision. Scan with the Binance app, confirm the pairing code, then you’re ready to propose.</p>
+        </div>
+        <div class="actions primary-actions">
           <button id="wallet-connect" class="btn" type="button">Connect Binance</button>
+          <button id="wallet-refresh" class="btn ghost" type="button">Refresh</button>
           <button id="wallet-signout" class="btn ghost" type="button" hidden>Sign out</button>
         </div>
       </div>
-      <div id="wallet-status" class="muted">Checking wallet status…</div>
+      <div id="wallet-status" class="muted status-line">Checking wallet status…</div>
       <div id="wallet-auth" class="wallet-auth" hidden></div>
       <div id="wallet-setup" class="wallet-setup" hidden></div>
     </section>
 
-    <section class="panel">
-      <div class="panel-head">
-        <h2>Decision queue</h2>
-        <button id="refresh" class="btn ghost">Refresh</button>
+    <section class="ops-grid" id="ops" data-locked="true">
+      <p class="kicker step2">Step 2 · After connect</p>
+      <div class="ops-row">
+        <section class="panel wide">
+          <div class="panel-head">
+            <h2>Command</h2>
+          </div>
+          <p class="muted">Natural language → policy firewall → queue or act.</p>
+          <form id="cmd-form" class="cmd">
+            <input id="cmd" type="text" placeholder="Pay contractor $650 due today" autocomplete="off" />
+            <button class="btn" type="submit">Propose</button>
+          </form>
+          <div id="cmd-result" class="result muted"></div>
+        </section>
+
+        <section class="panel wide">
+          <div class="panel-head">
+            <h2>Decision queue</h2>
+            <button id="refresh" class="btn ghost" type="button">Refresh</button>
+          </div>
+          <div id="queue" class="queue"></div>
+        </section>
       </div>
-      <div id="queue" class="queue"></div>
-    </section>
 
-    <section class="panel">
-      <h2>Command</h2>
-      <p class="muted">Natural language → policy firewall → queue or act.</p>
-      <form id="cmd-form" class="cmd">
-        <input id="cmd" type="text" placeholder="Pay contractor $650 due today" autocomplete="off" />
-        <button class="btn" type="submit">Propose</button>
-      </form>
-      <div id="cmd-result" class="result muted"></div>
-
-      <h2 class="mt">Policies</h2>
-      <div id="policies" class="policies"></div>
-    </section>
-
-    <section class="panel span">
-      <h2>Audit trail</h2>
-      <div id="audit" class="audit"></div>
+      <div class="ops-row">
+        <section class="panel wide">
+          <h2>Policies</h2>
+          <div id="policies" class="policies"></div>
+        </section>
+        <section class="panel wide">
+          <h2>Audit trail</h2>
+          <div id="audit" class="audit"></div>
+        </section>
+      </div>
     </section>
   </main>
 

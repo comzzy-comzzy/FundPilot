@@ -3,6 +3,17 @@ const $ = (sel) => document.querySelector(sel);
 let pendingQrCodeId = null;
 let currentMode = "demo";
 
+function setOpsLocked(locked) {
+  const ops = document.getElementById("ops");
+  if (ops) ops.dataset.locked = locked ? "true" : "false";
+  const form = document.getElementById("cmd-form");
+  if (form) {
+    form.querySelectorAll("input, button").forEach((el) => { el.disabled = !!locked; });
+  }
+  const refresh = document.getElementById("refresh");
+  if (refresh) refresh.disabled = !!locked;
+}
+
 async function api(path, opts) {
   const res = await fetch(path, {
     headers: { "Content-Type": "application/json" },
