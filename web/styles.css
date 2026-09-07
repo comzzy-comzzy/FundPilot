@@ -493,6 +493,78 @@ code {
 }
 .ok { color: var(--ok); font-weight: 600; font-size: 11px; }
 
+
+/* Decision board — same card language as .steps */
+.decisions {
+  padding: 28px 0 8px;
+  border-top: 1px solid var(--line);
+}
+.decision-board {
+  list-style: none;
+  margin: 22px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.decision-board li { margin: 0; }
+.decision-card {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px 14px;
+  align-items: center;
+  text-align: left;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.03) inset;
+  transition: border-color .2s ease, transform .2s ease, background .2s ease;
+}
+.decision-card:hover {
+  border-color: #3a3a45;
+  background: #14141a;
+  transform: translateY(-1px);
+}
+.decision-card:active { transform: translateY(0); }
+.decision-card p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.decision-card b {
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+}
+.q-label {
+  font-size: 11px;
+  font-weight: 650;
+  color: var(--accent-2);
+  background: #17151f;
+  border: 1px solid var(--line);
+  padding: 5px 9px;
+  border-radius: 8px;
+  white-space: nowrap;
+  width: max-content;
+}
+.q-label.warn { color: var(--warn); background: #1a1710; }
+
+@media (min-width: 800px) {
+  .decision-board {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .decision-card {
+    grid-template-columns: 1fr;
+    align-items: start;
+    min-height: 140px;
+    gap: 14px;
+  }
+  .decision-card b { margin-top: auto; font-size: 22px; }
+}
+
 /* How */
 .how {
   padding: 64px 0;

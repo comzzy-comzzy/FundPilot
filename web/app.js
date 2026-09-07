@@ -174,6 +174,15 @@
     }
   });
 
+  
+  document.querySelectorAll(".decision-card[data-to-slide]").forEach((b) => {
+    b.addEventListener("click", () => {
+      const i = Number(b.dataset.toSlide);
+      if (!Number.isNaN(i)) { layout(i); play(); }
+      document.getElementById("stage")?.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  });
+
   layout(0);
   if (!new URLSearchParams(location.search).has("static")) play();
 })();
